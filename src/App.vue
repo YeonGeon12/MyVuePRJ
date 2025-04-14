@@ -1,30 +1,36 @@
-<!-- src/App.vue (부모) -->
 <template>
   <div>
-    <h1>할 일 목록</h1>
-    <todo-item
-        v-for="todo in todos"
-        :key="todo.id"
-        :todo="todo"
-        @toggle="toggleTodo"
-    />
+    <h1>카운터: {{ count }}</h1>
+    <p>두 배: {{ doubleCount }}</p>
+    <button @click="increment">증가</button>
   </div>
 </template>
 <script>
-import TodoItem from './components/TodoItem.vue';
+import { ref, computed, watch, onMounted } from 'vue';
 export default {
-  components: { TodoItem },
-    data() {
-      return {
-        todos: [
-          { id: 1, text: 'Vue 배우기', done: false }
-        ]
-      }
-    },
-  methods: {
-    toggleTodo(todo) {
-      todo.done = !todo.done;
-    }
+  setup() {
+    // ref로 반응형 데이터
+    const count = ref(0);
+    // 메서드
+    const increment = () => {
+      count.value++;
+    };
+    // 계산된 속성
+    const doubleCount = computed(() => count.value * 2);
+    // 감시자
+    watch(count, (newValue) => {
+      console.log(`카운트가 ${newValue}로 바뀌었어요!`);
+    });
+    // 라이프사이클 훅
+    onMounted(() => {
+      console.log('카운터가 시작됐습니다!');
+    });
+    return { count, increment, doubleCount };
   }
 }
 </script>
+<style>
+h1 {
+  color: #42b983;
+}
+</style>
