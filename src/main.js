@@ -1,5 +1,8 @@
+// src/main.js
 import { createApp } from 'vue'
 import App from './App.vue'
+import MyButton from './components/MyButton.vue'
 
 const app = createApp(App)
-app.mount('#app') // 이 호출이 한 번만 있어야 함
+app.component('MyButton', MyButton)  // 글로벌 등록
+app.mount('#app')
