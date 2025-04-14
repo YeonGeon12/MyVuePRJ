@@ -1,14 +1,15 @@
-<!-- src/components/TodoItem.vue -->
+<!-- src/components/TodoItem.vue (자식) -->
 <template>
-  <li>{{ todo }}</li>
+  <li>
+    <span :style="{ textDecoration: todo.done ? 'line-through' : 'none' }">
+      {{ todo.text }}
+    </span>
+    <button @click="$emit('toggle', todo)">완료</button>
+  </li>
 </template>
 <script>
 export default {
-  props: ['todo'] // 부모로부터 데이터 받기
+  props: ['todo']
 }
 </script>
-<style scoped>
-li {
-  color: #333;
-}
-</style>
+
