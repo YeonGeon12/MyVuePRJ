@@ -1,15 +1,16 @@
+<!-- src/App.vue -->
 <template>
-  <div>
-    <h1>Vue 앱</h1>
-    <my-button /> <!-- App.vue에서만 사용가능 -->
-  </div>
+  <ul>
+    <todo-item v-for="todo in todos" :key="todo.id" :todo="todo.text" />
+  </ul>
 </template>
 <script>
-import MyButton from './components/MyButton.vue';
+import TodoItem from './components/TodoItem.vue';
 
 export default {
-  components: {
-    MyButton // 지역 등록
+  components: { TodoItem },
+  data() {
+    return {todos: [{id: 1, text: 'Vue 배우기'}]}
   }
 }
 </script>
