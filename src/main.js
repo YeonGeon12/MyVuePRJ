@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+app.mount('#app') // 이 호출이 한 번만 있어야 함

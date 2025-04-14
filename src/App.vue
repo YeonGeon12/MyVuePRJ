@@ -1,26 +1,18 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1>할 일 목록</h1>
+    <ul>
+      <todo-item v-for="todo in todos" :key="todo" :todo="todo" />
+    </ul>
+  </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import TodoItem from "@/components/TodoItem.vue";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  components: { TodoItem }, // 컴포넌트 등록
+  data() {
+    return { todos: ['할 일 1', '할 일 2'] }
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
