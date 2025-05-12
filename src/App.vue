@@ -1,31 +1,31 @@
 <template>
-  <div>
-    <h1>사용자 목록</h1>
-    <button @click="fetchData" :disabled="loading">데이터 가져오기</button>
-    <div v-if="loading">로딩 중...</div>
-    <div v-if="error">에러: {{ error }}</div>
-    <ul v-if="data">
-      <li v-for="user in data" :key="user.id">{{ user.name }}</li>
-    </ul>
+  <!-- 구성 요소 사용 위치 표시 -->
+  <div id="app">
+    <!-- 네비게이션 바 -->
+    <nav>
+      <!-- 홈 페이지로 이동하는 링크 -->
+      <router-link to="/">홈</router-link> |
+      <!-- 게시글 목록 페이지로 이동하는 링크 -->
+      <router-link to="/posts">게시글</router-link>
+    </nav>
+
+    <!-- 현재 경로의 컴포넌트 표시 -->
+    <router-view/>
   </div>
 </template>
 
-<script>
-import { useFetch } from './composables/useFetch';
-
-export default {
-  setup() {
-    const { data, error, loading, fetchData } = useFetch(
-      'https://jsonplaceholder.typicode.com/users'
-    );
-
-    return { data, error, loading, fetchData };
-  }
-}
-</script>
-
 <style>
-h1 {
-  color: #42b983;
+/* 네비게이션 바 스타일 */
+nav {
+  background-color: #42b983;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+/* 링크 스타일 */
+nav a {
+  color: white;
+  margin-right: 10px;
+  text-decoration: none;
 }
 </style>
