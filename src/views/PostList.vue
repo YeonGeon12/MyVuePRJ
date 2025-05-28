@@ -1,9 +1,6 @@
 <template>
-  <!-- 구성 요소 사용 위치 표시 -->
   <div>
-    <!-- 게시글 목록 제목 -->
     <h1>게시글 목록</h1>
-    <!-- 게시글 목록 표시 -->
     <ul>
       <!-- 각 게시글을 동적 경로 링크로 표시 -->
       <li v-for="post in posts" :key="post.id">
@@ -12,7 +9,6 @@
     </ul>
   </div>
 </template>
-
 <script>
 export default {
   // 사용 위치 표시

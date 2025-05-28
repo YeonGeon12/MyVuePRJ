@@ -8,7 +8,6 @@
     <button @click="goBack">목록으로</button>
   </div>
 </template>
-
 <script>
 // 경로와 라우터 접근 함수 가져오기
 import { useRoute, useRouter } from 'vue-router';
