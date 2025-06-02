@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <h1>Vue.js 3 Provide/Inject 예제</h1>
-    <!-- 테마 제공 컴포넌트 호츨 -->
+    <ThemeProvider />
   </div>
 </template>
 
 <script>
-import ThemeProvider from "./components/ThemeProvider.vue";
+import ThemeProvider from './components/ThemeProvider.vue'
 
 export default {
   name: 'App',
