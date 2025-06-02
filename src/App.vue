@@ -1,21 +1,26 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">홈</router-link>
-      <router-link to="posts">게시글</router-link>
-    </nav>
-    <router-view/>
+    <h1>Vue.js 3 Provide/Inject 예제</h1>
+    <!-- 테마 제공 컴포넌트 호츨 -->
   </div>
 </template>
-<style>
-nav {
-  background-color: #42b983;
-  padding: 10px;
-  margin-bottom: 20px;
+
+<script>
+import ThemeProvider from "./components/ThemeProvider.vue";
+
+export default {
+  name: 'App',
+  components: {
+    ThemeProvider
+  }
 }
-nav a {
-  color: white;
-  margin-right: 10px;
-  text-decoration: none;
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
 }
 </style>
