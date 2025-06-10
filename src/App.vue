@@ -80,7 +80,7 @@ export default {
   position: fixed;
   top: 20px;
   right: 20px;
-  background: #42b983;
+  background: #00D8FF;
   color: white;
   padding: 15px;
   border-radius: 5px;
